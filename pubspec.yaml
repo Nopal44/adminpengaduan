@@ -1,0 +1,55 @@
+name: pengaduan_sarana
+description: Aplikasi Pengaduan Sarana Sekolah (UKK RPL)
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+  # Firebase
+  firebase_core: ^2.27.0
+  cloud_firestore: ^4.15.5
+  firebase_auth: ^4.17.5
+
+  # Notifikasi PUSH (FCM) — supaya notifikasi tetap muncul walau aplikasi
+  # sudah ditutup total (bukan cuma saat aplikasi berjalan/background).
+  # Dikirim lewat Cloud Functions (lihat folder functions/) saat ada data
+  # baru di Firestore (pengaduan, chat, pendaftaran, rating).
+  firebase_messaging: ^14.9.4
+
+  # Foto pengaduan (disimpan sebagai base64 di Firestore, tanpa Firebase Storage)
+  image_picker: ^1.1.2
+
+  # Kontak langsung (WhatsApp/Telepon/Email) di halaman Bantuan
+  url_launcher: ^6.3.0
+
+  # Notifikasi lokal (pembaruan aspirasi, chat, & akun) saat aplikasi berjalan
+  flutter_local_notifications: ^17.2.3
+
+  # Util
+  intl: ^0.19.0
+  fl_chart: ^0.68.0
+
+  # Cetak/ekspor Laporan Pengaduan (mingguan/bulanan) ke PDF, lalu bisa
+  # dibagikan, disimpan, atau langsung diprint dari Dashboard Admin.
+  pdf: ^3.10.7
+  printing: ^5.12.0
+
+  # Menyimpan preferensi ringan di perangkat (mis. pilihan tema Gelap/Terang)
+  # supaya tetap tersimpan walau aplikasi ditutup atau siswa logout & login lagi.
+  shared_preferences: ^2.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
